@@ -457,7 +457,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/16/HTML/" itemprop="url">Based HTML</a></h1>
+                <a class="post-title-link" href="/2018/07/16/HTML/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -469,7 +469,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T19:30:16+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T19:32:56+08:00">
                 2018-07-16
               </time>
             
@@ -479,28 +479,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -530,14 +508,220 @@
 
       
         
-          HTML基础概念
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/16/HTML/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><ul>
+<li><p>概念</p>
+<ol>
+<li><p>中文问题</p>
+<p>中文乱码问题可以在浏览器上设置编码方式为 <strong>GB2312 或 UTF-8</strong> 或者在 html 代码的最前面加上编码设置</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=GB2312"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li><p>标签</p>
+<p>HTML是 Hyper Text Markup Language 超文本标记语言 的缩写，HTML是由一套标记标签 （markup tag）组成，通常就叫标签，标签由开始标签和结束标签组成 </p>
+<p><code>&lt;p&gt;</code>这是一个开始标签  </p>
+<p><code>&lt;/p&gt;</code>这是一个结束标签  </p>
+<p><code>&lt;p&gt;</code> Hello World <code>&lt;/p&gt;</code>标签之间的文本叫做内容 </p>
+</li>
+<li><p>元素</p>
+<p>元素指的是包括开始标签到结束标签的代码  </p>
+<p>比如  <code>&lt;p&gt;</code>HelloWorld<code>&lt;/p&gt;</code>  </p>
+<p>元素包括</p>
+<ul>
+<li>完整的元素</li>
+<li>不完整的元素</li>
+<li>特殊的元素</li>
+</ul>
+</li>
+<li><p>属性</p>
+<p>属性用来修饰标签的，比如要设置一个标题居中 </p>
+<p><code>&lt;h1 align=&quot;center&quot;&gt;</code>居中标题<code>&lt;/h1&gt;</code></p>
+<p>写在开始标签里的 <code>align=&quot;center&quot;</code> </p>
+<p>就叫属性 </p>
+<p><code>align</code> 是属性名</p>
+<p><code>center</code> 是属性值</p>
+<p>属性值应该使用双引号括起来</p>
+</li>
+<li><p>注释</p>
+<p>html使用<code>&lt;!-- --&gt;</code>进行注释 </p>
+</li>
+</ol>
+<ul>
+<li><p>基本元素</p>
+<ol>
+<li><p>标题</p>
+<p>标题会自动粗体，大写其中的内容，并且带有换行效果   一般会使用 <code>&lt;h1&gt;</code> 到 <code>&lt;h5&gt;</code> 分别表示不同大小的标题 </p>
+</li>
+<li><p>段落</p>
+<p><code>&lt;p&gt;</code>标签即表示段落，是 paragraph 的缩写，自带换行效果 </p>
+</li>
+<li><p>粗体</p>
+<p><code>&lt;b&gt;</code>  <code>&lt;strong&gt;</code> 都可以用来实现粗体的效果</p>
+<blockquote>
+<p>区别： b是 bold 的缩写，仅仅表示该文本是粗体的，并不暗示这段文字的重要性 strong 虽然也是粗体，但是更多的是强调语义上的加重，提醒用户该文本的重要性。 在 SEO（搜索引擎优化）的时候，也更加容易帮助用户找到重点的内容 推荐使用 strong </p>
+</blockquote>
+</li>
+<li><p>斜体</p>
+<p><code>&lt;i&gt;</code>和<code>&lt;em&gt;</code>都可以表示斜体效果 </p>
+<blockquote>
+<p>区别： i 是 italic 的缩写，仅仅表示该文本是斜体的，并不暗示这段文字的重要性  em 是 Emphasized 的缩写，虽然也是斜体，但是更多的是强调语义上的加重，提醒用户该文本的重要性。 常常用于引入新的术语的时候使用。 </p>
+</blockquote>
+</li>
+<li><p>预格式</p>
+<p>有时候，需要在网页上显示代码，比如java代码，就需要用到 pre，<strong>保留原有缩进</strong></p>
+</li>
+<li><p>删除效果</p>
+<p><code>&lt;del&gt;</code>即删除标签 delete 的缩写 </p>
+</li>
+<li><p>下划线</p>
+<p><code>&lt;ins&gt;</code>即下划线标签</p>
+<p>但是通常来讲，不要给普通文本加下划线，因为用户会误以为是一个超链接</p>
+</li>
+<li><p>图像</p>
+<p><code>&lt;img&gt;</code> 即图像标签  需要设置其属性 src 指定图像的路径</p>
+<ul>
+<li>同级目录图像</li>
+<li>上级目录图像</li>
+<li>其他目录图像</li>
+<li>设置图像大小</li>
+<li>图像居中</li>
+<li>异常处理 alt 属性</li>
+</ul>
+</li>
+<li><p>超链接</p>
+<p><code>&lt;a&gt;</code>标签即用来显示超链   完整元素是   <code>&lt;a href=&quot;跳转到的页面地址&quot;&gt;超链显示文本&lt;/a&gt;</code></p>
+<ul>
+<li>在新的页面打开（涉及安全问题）</li>
+<li>超链接上的提示文字</li>
+<li>使用图片代替文本作为超链接</li>
+</ul>
+</li>
+<li><p>表格</p>
+<p><code>&lt;table&gt;</code>标签用于显示一个表格  </p>
+<p><code>&lt;tr&gt;</code> 表示行  </p>
+<p><code>&lt;td&gt;</code> 表示列又叫单元格 </p>
+<ul>
+<li><p>带边框的表格</p>
+<p>table 标签的 border 属性，默认为 0</p>
+</li>
+<li><p>设置 table 的宽度</p>
+</li>
+<li><p>单元格宽度绝对值</p>
+</li>
+<li><p>单元格宽度相对值（百分比）</p>
+</li>
+<li><p>单元格水平对齐</p>
+</li>
+<li><p>单元格垂直对齐</p>
+</li>
+<li><p>横跨两列，水平合并</p>
+</li>
+<li><p>纵跨两行，垂直合并</p>
+</li>
+<li><p>背景色（颜色的两种表示法）</p>
+</li>
+</ul>
+</li>
+<li><p>列表</p>
+<p>列表分无序列表和有序列表，分别用<code>&lt;ul&gt;</code>标签和<code>&lt;ol&gt;</code>标签表示</p>
+<p>列表中的行元素用<code>&lt;li&gt;</code>标签表示</p>
+</li>
+<li><p>块</p>
+<p><code>&lt;div&gt;</code>  <code>&lt;span&gt;</code>  这两种标签都是布局用的，这种标签本身没有任何显示效果，通常是用来结合 css 进行页面布局 </p>
+<p>div和span的区别 </p>
+<blockquote>
+<p>div是块元素，即自动换行  常见的块元素还有 h1,table,p  </p>
+<p>span 是内联元素，即不会换行  常见的内联元素还有 img,a,b,strong </p>
+</blockquote>
+</li>
+<li><p>字体</p>
+<p>使用<code>&lt;font&gt;</code>标签表示字体</p>
+<p>font常用的属性有 color 和 size, 分别表示颜色和大小  </p>
+</li>
+<li><p>内联框架</p>
+<p><code>&lt;iframe&gt;</code>即内联框架   通过内联框架 可以实现在网页中“插入”网页 </p>
+</li>
+</ol>
+</li>
+<li><p>表单元素</p>
+<ol>
+<li><p>文本框</p>
+<p><code>&lt;input type=&quot;text&quot;&gt;</code> 即表示文本框   并且只能够输入一行   如果要输入多行   使用<a href="http://how2j.cn/k/html/html-textarea/196.html" target="_blank" rel="noopener">文本域</a>   注： <code>&lt;input&gt;</code> 标签很特别，一般是不需要写成<code>&lt;input /&gt;</code>或者<code>&lt;input&gt;&lt;/input&gt;</code>这样的。  并且<code>&lt;input&gt;</code> 这样的写法也是满足标准的 </p>
+<ul>
+<li>size 属性：设置文本框长度</li>
+<li>value 属性：设置初始值</li>
+<li>placeholder 属性：设置背景文字</li>
+</ul>
+</li>
+<li><p>密码框</p>
+<p><code>&lt;input type=&quot;password&quot;&gt;</code>即表示密码框  </p>
+</li>
+<li><p>表单</p>
+<ul>
+<li><code>&lt;form&gt;</code>用于向服务器提交数据，比如账号密码  </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://how2j.cn/study/login.jsp"</span>&gt;</span></span><br><span class="line">账号：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> &gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登陆"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>method=”get”  </p>
+<p>使用 method=”get” 提交数据 是常用的提交数据的方式  如果 form 元素没有提供 method 属性，默认就是 get 方式提交数据 ，get 方式的一个特点就是，可以在浏览器的地址栏看到提交的参数，即便是密码也看得到 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"get"</span> <span class="attr">action</span>=<span class="string">"http://how2j.cn/study/login.jsp"</span>&gt;</span></span><br><span class="line">账号：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> &gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登陆"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>method=”post”</p>
+<p>使用 method=”post” 也可以提交数据  post 不会在地址栏显示提交的参数  如果要提交二进制数据，比如上传文件，必须采用 post 方式 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"http://how2j.cn/study/login.jsp"</span>&gt;</span></span><br><span class="line">账号：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> &gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登陆"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>get 和 post 的区别</p>
+<p>get  是 form 默认的提交方式  如果通过一个超链访问某个地址，是 get 方式  如果在地址栏直接输入某个地址，是 get 方式  提交数据会在浏览器显示出来  不可以用于提交二进制数据，比如上传文件  </p>
+<p>post  必须在 form 上通过 method=”post” 显示指定  提交数据不会在浏览器显示出来  可以用于提交二进制数据，比如上传文件 </p>
+</li>
+</ul>
+</li>
+<li><p>单选框</p>
+<p><code>&lt;input type=&quot;radio&quot;&gt;</code> 表示单选框</p>
+<ul>
+<li>checked 属性：默认选中</li>
+<li>分组：分组即：多个单选框，都在一个分组里，同一时间，只能选中一个单选框  设置 name 属性相同即可 </li>
+</ul>
+</li>
+<li><p>复选框</p>
+<p><code>&lt;input type=&quot;checkbox&quot;&gt;</code>即表示复选框 </p>
+</li>
+<li><p>下拉列表</p>
+<p><code>&lt;select&gt;</code> 即下拉列表  需要配合<code>&lt;option&gt;</code>使用 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> &gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>苍老师<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>高树玛利亚<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>遥美<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>size 属性：设置高度</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>  <span class="attr">size</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>苍老师<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>高树玛利亚<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>遥美<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>multiple 属性：设置多选</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">size</span>=<span class="string">"3"</span> <span class="attr">multiple</span>=<span class="string">"multiple"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>苍老师<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>高树玛利亚<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>遥美<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>selected 属性：默认选中</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">size</span>=<span class="string">"3"</span> <span class="attr">multiple</span>=<span class="string">"multiple"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> &gt;</span>苍老师<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span>=<span class="string">"selected"</span>&gt;</span>高树玛利亚<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span>=<span class="string">"selected"</span>&gt;</span>遥美<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文本域</p>
+</li>
+<li><p>普通按钮</p>
+</li>
+<li><p>提交按钮</p>
+</li>
+<li><p>重置按钮</p>
+</li>
+<li><p>图像提交</p>
+</li>
+<li><p>按钮</p>
+</li>
+</ol>
+</li>
+</ul>
+
+          
         
       
     </div>
