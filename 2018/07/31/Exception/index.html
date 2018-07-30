@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="title: Java异常 #文章页面上的显示名称，一般是中文date: 2018-7-31 0:53:16 #文章生成时间，一般不改，当然也可以任意修改categories: Java #分类tags: [JavaSE] #文章标签，可空，多标签请用格式，注意:后面有个空格description: 导致程序的正常流程被中断的事件，叫做异常 异常的概念异常定义：导致程序的正常流程被中断的事件，叫做">
+<meta property="og:type" content="article">
+<meta property="og:title" content="米♂奇♂妙♂妙♂屋">
+<meta property="og:url" content="http://lanxiangben.me/2018/07/31/Exception/index.html">
+<meta property="og:site_name" content="米♂奇♂妙♂妙♂屋">
+<meta property="og:description" content="title: Java异常 #文章页面上的显示名称，一般是中文date: 2018-7-31 0:53:16 #文章生成时间，一般不改，当然也可以任意修改categories: Java #分类tags: [JavaSE] #文章标签，可空，多标签请用格式，注意:后面有个空格description: 导致程序的正常流程被中断的事件，叫做异常 异常的概念异常定义：导致程序的正常流程被中断的事件，叫做">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-30T16:53:27.980Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="米♂奇♂妙♂妙♂屋">
+<meta name="twitter:description" content="title: Java异常 #文章页面上的显示名称，一般是中文date: 2018-7-31 0:53:16 #文章生成时间，一般不改，当然也可以任意修改categories: Java #分类tags: [JavaSE] #文章标签，可空，多标签请用格式，注意:后面有个空格description: 导致程序的正常流程被中断的事件，叫做异常 异常的概念异常定义：导致程序的正常流程被中断的事件，叫做">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanxiangben.me/2018/07/31/Exception/"/>
+
+
+
+
+
+  <title> | 米♂奇♂妙♂妙♂屋</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">米♂奇♂妙♂妙♂屋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lanxiangben.me/2018/07/31/Exception/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiangben Lan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/face.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="米♂奇♂妙♂妙♂屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-31T00:52:03+08:00">
+                2018-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>title: Java异常 #文章页面上的显示名称，一般是中文<br>date: 2018-7-31 0:53:16 #文章生成时间，一般不改，当然也可以任意修改<br>categories: Java #分类<br>tags: [JavaSE] #文章标签，可空，多标签请用格式，注意:后面有个空格<br>description: 导致程序的正常流程被中断的事件，叫做异常</p>
+<h1 id="异常的概念"><a href="#异常的概念" class="headerlink" title="异常的概念"></a>异常的概念</h1><p>异常定义：导致程序的正常流程被中断的事件，叫做异常。</p>
+<p>示例：文件不存在异常（FileNotFoundException）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> exception;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">          </span><br><span class="line">        File f= <span class="keyword">new</span> File(<span class="string">"d:/LOL.exe"</span>);</span><br><span class="line">          </span><br><span class="line">        <span class="comment">//试图打开文件LOL.exe，会抛出FileNotFoundException，如果不处理该异常，就会有编译错误</span></span><br><span class="line">        <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line">          </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题：到目前为止，都接触了哪些异常，分别在什么场景出现？</p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>异常处理常见手段：try catch finally throws</p>
+<h2 id="try-catch"><a href="#try-catch" class="headerlink" title="try catch"></a>try catch</h2><ol>
+<li>将可能抛出 FileNotFoundException 的代码放在 try{} 里；</li>
+<li>如果文件存在，就会顺序执行，且不执行 catch{} 中的代码；</li>
+<li>如果文件不存在，try{} 里的代码会立即终止，程序流程会运行到对应的 catch{} 中；</li>
+<li>e.printStackTrace()；会打印出方法的调用轨迹，便于分析和定位哪里出现了异常。</li>
+</ol>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> exception;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         </span><br><span class="line">        File f= <span class="keyword">new</span> File(<span class="string">"d:/LOL.exe"</span>);</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"试图打开 d:/LOL.exe"</span>);</span><br><span class="line">            <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line">            System.out.println(<span class="string">"成功打开"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(FileNotFoundException e)&#123;</span><br><span class="line">            System.out.println(<span class="string">"d:/LOL.exe不存在"</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用异常的父类进行-catch"><a href="#使用异常的父类进行-catch" class="headerlink" title="使用异常的父类进行 catch"></a>使用异常的父类进行 catch</h2><p>FileNotFoundException 是 Exception 的子类，使用 Exception 也可以 catch 住 FileNotFoundException。</p>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> exception;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">          </span><br><span class="line">        File f= <span class="keyword">new</span> File(<span class="string">"d:/LOL.exe"</span>);</span><br><span class="line">          </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"试图打开 d:/LOL.exe"</span>);</span><br><span class="line">            <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line">            System.out.println(<span class="string">"成功打开"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            System.out.println(<span class="string">"d:/LOL.exe不存在"</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">          </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多异常捕捉"><a href="#多异常捕捉" class="headerlink" title="多异常捕捉"></a>多异常捕捉</h2><h3 id="方法一：使用多个-catch"><a href="#方法一：使用多个-catch" class="headerlink" title="方法一：使用多个 catch"></a>方法一：使用多个 catch</h3><p>示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> exception;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.text.ParseException;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">"d:/LOL.exe"</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"试图打开 d:/LOL.exe"</span>);</span><br><span class="line">            <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line">            System.out.println(<span class="string">"成功打开"</span>);</span><br><span class="line">            SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">            Date d = sdf.parse(<span class="string">"2016-06-03"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"d:/LOL.exe不存在"</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"日期格式解析错误"</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法二：在一个-catch-中进行判断"><a href="#方法二：在一个-catch-中进行判断" class="headerlink" title="方法二：在一个 catch 中进行判断"></a>方法二：在一个 catch 中进行判断</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> exception;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.text.ParseException;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">"d:/LOL.exe"</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"试图打开 d:/LOL.exe"</span>);</span><br><span class="line">            <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line">            System.out.println(<span class="string">"成功打开"</span>);</span><br><span class="line">            SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">            Date d = sdf.parse(<span class="string">"2016-06-03"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException | ParseException e) &#123;</span><br><span class="line">            <span class="keyword">if</span> (e <span class="keyword">instanceof</span> FileNotFoundException)</span><br><span class="line">                System.out.println(<span class="string">"d:/LOL.exe不存在"</span>);</span><br><span class="line">            <span class="keyword">if</span> (e <span class="keyword">instanceof</span> ParseException)</span><br><span class="line">                System.out.println(<span class="string">"日期格式解析错误"</span>);</span><br><span class="line"> </span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>这种方法需要JDK1.7及以上版本支持，优点是 catch 代码更紧凑，缺点是不能确定发生了哪种异常。</strong></p>
+<h2 id="finally"><a href="#finally" class="headerlink" title="finally"></a>finally</h2><p>无论是否发生异常，finally 中的代码都会被执行，通常用来关闭数据库连接。</p>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> exception;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         </span><br><span class="line">        File f= <span class="keyword">new</span> File(<span class="string">"d:/LOL.exe"</span>);</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"试图打开 d:/LOL.exe"</span>);</span><br><span class="line">            <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line">            System.out.println(<span class="string">"成功打开"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(FileNotFoundException e)&#123;</span><br><span class="line">            System.out.println(<span class="string">"d:/LOL.exe不存在"</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"无论文件是否存在， 都会执行的代码"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h2><p>考虑如下情况：</p>
+<p>主方法调用 method1，method1 调用 method2。method2 中打开文件，需要经常处理异常，但是 method2 不打算处理异常，而是把这个异常通过 throws 抛出去。那么 method1 就会接到该异常。处理方法也是<strong>两种</strong>：</p>
+<ol>
+<li>try catch 处理</li>
+<li>继续 throws 抛出</li>
+</ol>
+<p>一旦选择了方法1，则异常就在 method1 中消化掉了，main 方法中不必在处理。</p>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> exception;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        method1();</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            method2();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> <span class="keyword">throws</span> FileNotFoundException </span>&#123;</span><br><span class="line"> </span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">"d:/LOL.exe"</span>);</span><br><span class="line"> </span><br><span class="line">        System.out.println(<span class="string">"试图打开 d:/LOL.exe"</span>);</span><br><span class="line">        <span class="keyword">new</span> FileInputStream(f);</span><br><span class="line">        System.out.println(<span class="string">"成功打开"</span>);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="throws-和-throw-的区别"><a href="#throws-和-throw-的区别" class="headerlink" title="throws 和 throw 的区别"></a>throws 和 throw 的区别</h2><ol>
+<li>throws 出现在方法声明上；throw 出现在方法体内</li>
+<li>throws 表示出现异常的一种可能性，并不一定会发生这些异常；throw 则是抛出了异常，执行 throw 则一定抛出了某个异常对象。 </li>
+</ol>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>假设有一个方法 public int method()，返回一个整数。在这个方法中有 try catch 和 finally。</p>
+<p>try 里返回1；</p>
+<p>catch 里返回2；</p>
+<p>finally 里返回3；</p>
+<p>那么这个方法到底返回多少？</p>
+<h1 id="异常分类"><a href="#异常分类" class="headerlink" title="异常分类"></a>异常分类</h1><h1 id="Throwable"><a href="#Throwable" class="headerlink" title="Throwable"></a>Throwable</h1><h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/29/PrintList/" rel="next" title="从尾到头打印链表">
+                <i class="fa fa-chevron-left"></i> 从尾到头打印链表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/face.jpg"
+                alt="Xiangben Lan" />
+            
+              <p class="site-author-name" itemprop="name">Xiangben Lan</p>
+              <p class="site-description motion-element" itemprop="description">记录个人技术成长。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#异常的概念"><span class="nav-number">1.</span> <span class="nav-text">异常的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">2.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#try-catch"><span class="nav-number">2.1.</span> <span class="nav-text">try catch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用异常的父类进行-catch"><span class="nav-number">2.2.</span> <span class="nav-text">使用异常的父类进行 catch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多异常捕捉"><span class="nav-number">2.3.</span> <span class="nav-text">多异常捕捉</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一：使用多个-catch"><span class="nav-number">2.3.1.</span> <span class="nav-text">方法一：使用多个 catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二：在一个-catch-中进行判断"><span class="nav-number">2.3.2.</span> <span class="nav-text">方法二：在一个 catch 中进行判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#finally"><span class="nav-number">2.4.</span> <span class="nav-text">finally</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throws"><span class="nav-number">2.5.</span> <span class="nav-text">throws</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throws-和-throw-的区别"><span class="nav-number">2.6.</span> <span class="nav-text">throws 和 throw 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.7.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常分类"><span class="nav-number">3.</span> <span class="nav-text">异常分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Throwable"><span class="nav-number">4.</span> <span class="nav-text">Throwable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义异常"><span class="nav-number">5.</span> <span class="nav-text">自定义异常</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiangben Lan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
